@@ -1,0 +1,17 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Muj web</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <h1>{% block title %}{% endblock %}</h1>
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+    {% include 'content/footer.html' %}
+</body>
+</html>
