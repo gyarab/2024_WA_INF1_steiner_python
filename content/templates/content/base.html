@@ -3,9 +3,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Muj web</title>
+    <title>Lite terraria wiki</title>
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{% static 'Icon.png' %}">
 </head>
+<style>
+    .uvod img {
+        width: 100%;
+        height: auto;
+    }
+</style>
+<header>
+    <header>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+        
+
+        <script>
+            document.getElementById("theme").addEventListener("click", function () {
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) document.body.classList.toggle("light-mode");
+            else document.body.classList.toggle("dark-mode");
+            });
+
+
+            window.onscroll = function() {
+                updateProgressBar();
+            };
+
+            function updateProgressBar() {
+                var scrollTop = document.documentElement.scrollTop;
+                var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                var scrollPercent = (scrollTop / scrollHeight) * 100;
+                document.getElementById("progress-bar").style.width = scrollPercent + "%";
+            }
+        </script>
+
+        <!-- Titulek  -->
+        <h1>
+            Lite terraria wiki
+        </h1>
+
+        <hr>
+        &nbsp;
+        <div class="uvod">
+            <div class="center"><img src="{% static 'header.jpg' %}" alt="GEOCACHING"></div>
+        </div>
+        &nbsp;
+        <hr>
+            <h1>Něco o nás:</h1>
+            <p>Vítejte na stránkách Lite terraria wiki.</p>
+            <p>Toto je stranka, která vám poví o základních statistikách bosů, enemáků či dokonce i zbraňstva ze hry TERRARIA, jupí.</p>
+    </header>
+</header>
 <body>
     <h1>{% block title %}{% endblock %}</h1>
     <main>

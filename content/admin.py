@@ -3,13 +3,13 @@ from .models import Article, Category
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title']
+    list_display = ['id', 'title', 'version', 'lastUpdate']
     list_display_links = ['id', 'title']
-    #list_filter = ['category']
-    date_hierarchy = 'published'
-    search_fields = ['title', 'perex', 'text']
+    list_filter = ['categories', 'biom']  # Opravený filtr pro nové ManyToMany pole
+    date_hierarchy = 'lastUpdate'  # Opravený název pole
+    search_fields = ['title', 'zakladniInfo', 'dodatkovyText', 'vyroba', 'version']
 
-# Register your models here.
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Category)
 
