@@ -1,18 +1,64 @@
 {% extends 'content/base.html' %}
 
-
 {% block title %}
-    Seznam terraria objektů
+<style>
+    div .entita img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%  !important;
+    }
+    table, th, td {
+        border-collapse: collapse;
+    }
+</style>
+    Hlavni stranka - Lite terraria wiki
+    <h2>O nás:</h2>
+        <p>Lite terraria wiki je stránka, která vám poskytne informace o všech objektech v terrarii. Na této stránce najdete informace o všech objektech, které můžete najít v terrarii. </p>
+    <hr>
 {% endblock %}
 
 {% block main %}
+    <section>
+        <div class="container">
     {% for article in articles %}
-        <h2><a href="{% url 'content:article' article.id %}">{{ article.title }}</a></h2>
-        <strong>
-            {% for category in article.categories.all %}
-                {{ category.name }}{% if not forloop.last %}, {% endif %}
-            {% endfor %}
-        </strong>
-        <p>{{ article.perex }}</p>
+            <div class="item">
+                <div class="box">
+                    <h2><a href="{% url 'content:article' article.id %}">{{ article.title }}</a></h2>
+                    <table style="width:100%">
+                        <tr>
+                            <td style="width:80%">
+                                <p>
+                                    Kategorie:
+                                    {% for category in article.categories.all %}
+                                        {{ category.name }}{% if not forloop.last %}, {% endif %}
+                                    {% endfor %}
+                                </p>
+                                <p>
+                                    Info: {{ article.zakladniInfo }}
+                                </p>
+                            </td>
+                            <td>
+                                <div class="entita">
+                                    <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                        </tr>
+                    </table>
+                </div>
+            </div>
     {% endfor %}
+        </div>
+    </section>	
+    <hr>
+
+    <h2>Kategorie:</h2>
+        <p>Zde jsou všechny kategorie obsažené v Lite terraria wikipedii.</p>
+        <p>Počet kategorií: {{ categories|length }}</p>
+        {% for category in categories %}
+            <a href="{% url 'content:category' category.id %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
 {% endblock %}
+        

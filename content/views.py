@@ -7,8 +7,13 @@ from .models import Article, Category
 # Create your views here.
 def articles(request):
     articles = Article.objects.all()
-    
-    return render(request, 'content/articles.html', {'articles': articles})
+    categories = Category.objects.all()  # Získání všech kategorií
+
+    context = {
+        'articles': articles,
+        'categories': categories,  # Přidání kategorií do kontextu
+    }
+    return render(request, 'content/articles.html', context)
 
 def article(request, id):
     article = Article.objects.get(id=id)

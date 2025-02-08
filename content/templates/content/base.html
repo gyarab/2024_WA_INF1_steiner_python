@@ -10,28 +10,48 @@
 </head>
 <style>
     .uvod img {
-        width: 100%;
+        width: 65%;
+        height: 100px;
         height: auto;
     }
 </style>
 <header>
-    <header>
-        <div class="progress-container">
-            <div class="progress-bar" id="progress-bar"></div>
-          </div>
-        
+    <div class="content"></div>
 
+    <p id="Be"></p>
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <!-- Hlavička  -->
+    <div class="FP">
+        <div class="wrapper">
+            <div class="flexbox">
+                <div class="FBtn"><button id="theme" style="vertical-align:middle"><span>Tmavý/Světlý mód</span></button></div>
+                <div class="Fbox one">
+                    <!--<a href="#Be"><input type="button" id="button" value="Zpět na začátek"></a></div>-->
+                    <a class="likeBtn" href="{% url 'content:articles' %}">Zpět na rozcestník</a></div>
+                <div class="Fbox two">
+                    <div class="center">
+                        Lite terraria wiki
+                    </div>
+                </div>
+                <div class="Fbox three">ASt</div>
+            </div>
+
+        </div>
         <script>
             document.getElementById("theme").addEventListener("click", function () {
             if (window.matchMedia("(prefers-color-scheme: dark)").matches) document.body.classList.toggle("light-mode");
             else document.body.classList.toggle("dark-mode");
             });
-
-
+    
+    
             window.onscroll = function() {
                 updateProgressBar();
             };
-
+    
             function updateProgressBar() {
                 var scrollTop = document.documentElement.scrollTop;
                 var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -39,30 +59,26 @@
                 document.getElementById("progress-bar").style.width = scrollPercent + "%";
             }
         </script>
+    </div>
 
         <!-- Titulek  -->
-        <h1>
-            Lite terraria wiki
-        </h1>
-
-        <hr>
         &nbsp;
         <div class="uvod">
-            <div class="center"><img src="{% static 'header.jpg' %}" alt="GEOCACHING"></div>
+            <div class="center"><img class="logo" src="{% static 'Lite terraria wiki.png' %}" alt="Logo"></div>
         </div>
         &nbsp;
         <hr>
-            <h1>Něco o nás:</h1>
-            <p>Vítejte na stránkách Lite terraria wiki.</p>
-            <p>Toto je stranka, která vám poví o základních statistikách bosů, enemáků či dokonce i zbraňstva ze hry TERRARIA, jupí.</p>
-    </header>
 </header>
 <body>
-    <h1>{% block title %}{% endblock %}</h1>
-    <main>
-        {% block main %}
-        {% endblock %}
-    </main>
-    {% include 'content/footer.html' %}
+    <div class="FP">
+        <div class="wrapper">
+        <h1>{% block title %}{% endblock %}</h1>
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+        {% include 'content/footer.html' %}
+        </div>
+    </div>
 </body>
 </html>

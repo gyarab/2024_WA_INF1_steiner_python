@@ -5,14 +5,35 @@
 {% endblock %}
 
 {% block main %}
-    <p>{{ article.perex }}</p>
-    <strong>
-        {% for category in article.categories.all %}
-            <a href="{%url 'content:category' category.id %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
-        {% endfor %}
-    </strong>
+    <table>
+        <tr>
+            <td style="width:80%">
+                <strong>Zákldní parametry:</strong>
+            <p>{{ article.zakladniInfo }}</p>
 
-    <p>{{ article.text }}</p>
+            <strong>Kategorie:</strong>
+            <p>
+                {% for category in article.categories.all %}
+                    <a href="{%url 'content:category' category.id %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
 
-    <a href="{% url 'content:articles' %}"">Zpet na seznam</a>
+            <strong>Další informace:</strong>
+            <p>{{ article.dodatkovyText }}</p>
+
+            <strong>Jak k tomu přijít:</strong>
+            <p>{{ article.vyroba }}</p>
+
+            <strong>Od jaké verze je to tady s námi:</strong>
+            <p>{{ article.version }}</p>
+
+            </td>
+            <td>
+                <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                <p>Jméno: {{ article.title }}</p>
+            </td>
+        </tr>
+    </table>
+    
+    <a href="{% url 'content:articles' %}">Zpet na seznam</a>
 {% endblock %}

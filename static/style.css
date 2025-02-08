@@ -22,7 +22,6 @@ body {
 
 header{ 
     background-color: var(--color-secondary);
-    background-image: url("img/GeoForest.png");
     background-repeat: repeat-y;
     background-position: center top;
     text-align: center;
@@ -63,7 +62,6 @@ img {
     margin-left: auto;
     margin-right: auto;
     width: 300px;
-    transition: transform 0.5s ease, opacity 0.5s ease;
   }
 
 .image p{
@@ -74,19 +72,6 @@ img {
     background-color: rgba(0, 0, 0, 0.5); 
     color: white;
 }
-  
-  /* Při najetí myši na obrázek */
-img:hover {
-    transform: scale(1.8); /* Zvětší obrázek */
-    opacity: 1;          /* Sníží průhlednost */
-  }
-
-img.clicked{
-    position: relative;
-    animation-name: example;
-    transform: rotateX(150deg);
-    animation-duration: 4s;
-}
 
 h1{
     color: rgba(20, 146, 20, 0.486);
@@ -94,13 +79,11 @@ h1{
     font-size: 40px;
     font-weight: bold;
 }
-/*
 body{
     background-color: rgb(224, 234, 255);
     color: hsl(100, 100%, 13%);
     font-family: Poppins;
 }
-*/
 
 p{
     font-family: Poppins;
@@ -219,24 +202,9 @@ div.FP {
     padding: 10px;
 }
 
-.container .item:nth-child(2){
-    flex-grow: 2;
-}
-
-.container .item:nth-child(3){
-    flex-grow: 1;
-}
-
-.container .item:nth-child(4){
-    flex-grow: 2;
-}
-
-.container .item:nth-child(7){
-    flex-grow: 2;
-}
-
-.container .item p{
+.container .item .box{
     border: 5px solid rgb(5, 58, 5);
+    background-color: #006f04;
     border-radius: 4px;
 }
 

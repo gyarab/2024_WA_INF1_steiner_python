@@ -2,17 +2,35 @@
 
 
 {% block title %}
+    <style>
+        div .entita img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 10%  !important;
+        }
+    </style>
     Rubrika {{ category.name }}
 {% endblock %}
 
 {% block main %}
-    {% for article in articles %}
-        <h2><a href="{% url 'content:article' article.id %}">{{ article.title }}</a></h2>
-        <strong>
-            {% for category in article.categories.all %}
-                {{ category.name }}{% if not forloop.last %}, {% endif %}
-            {% endfor %}
-        </strong>
-        <p>{{ article.perex }}</p>
+    <section>
+        <div class="container">
+{% for article in articles %}
+            <div class="item">
+                <div class="box">
+                    <h2><a href="{% url 'content:article' article.id %}">{{ article.title }}</a></h2>
+                    <!--<strong>
+                        {% for category in article.categories.all %}
+                            {{ category.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </strong>-->
+                    <div class="entita">
+                        <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                    </div>
+                </div>
+            </div>
     {% endfor %}
+        </div>
+    </section>
 {% endblock %}
