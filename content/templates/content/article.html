@@ -1,6 +1,19 @@
 {% extends 'content/base.html' %}
 
 {% block title %}
+    <style>
+        div .entita img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 40%  !important;
+        }
+        table, th, td {
+            padding: 10px;
+            border: 1px solid black;
+            background-color: rgb(206, 206, 206);
+        }
+    </style>
     {{ article.title }}
 {% endblock %}
 
@@ -24,12 +37,17 @@
             <strong>Jak k tomu přijít:</strong>
             <p>{{ article.vyroba }}</p>
 
+            <strong>V jakém biomu jsem:</strong>
+            <p>{{ article.biom }}</p>
+
             <strong>Od jaké verze je to tady s námi:</strong>
             <p>{{ article.version }}</p>
 
             </td>
             <td>
-                <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                <div class="entita">
+                    <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                </div>
                 <p>Jméno: {{ article.title }}</p>
             </td>
         </tr>

@@ -10,6 +10,7 @@
     }
     table, th, td {
         border-collapse: collapse;
+        background-color: rgb(206, 206, 206);
     }
 </style>
     Hlavni stranka - Lite terraria wiki
@@ -55,10 +56,14 @@
     <hr>
 
     <h2>Kategorie:</h2>
-        <p>Zde jsou všechny kategorie obsažené v Lite terraria wikipedii.</p>
-        <p>Počet kategorií: {{ categories|length }}</p>
-        {% for category in categories %}
-            <a href="{% url 'content:category' category.id %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
-        {% endfor %}
+        <div class="greenBack">
+            <p>Zde jsou všechny kategorie obsažené v Lite terraria wikipedii.</p>
+            <p>Počet kategorií: {{ categories|length }}</p>
+            <p>
+            {% for category in categories %}
+                <a href="{% url 'content:category' category.id %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            </p>
+        </div>
 {% endblock %}
         
