@@ -1,4 +1,4 @@
-# 2024_WA_INF_STEINER_PYTHON
+# 2024_WA_INF1_STEINER_PYTHON
 ## Obecně
 Tento repozitář složí k práci s pythonem, ale momentálě se spíše zaměřuje na boj s Djangem.
 
@@ -62,7 +62,7 @@ S modelem article má vazbu `1:N`.
  - Nevím, už mi došly nápady... 
 
 ## Konečné údaje
- - Obsah této složky **2024_WA_INF_STEINER_PYTHON**, vznikal v roce 2024/2025 díky **Adamovi Steinervi**, žáku 3.E, vytvořena na pokyn **učitele Kamila Foltina**. 
+ - Obsah této složky **2024_WA_INF1_STEINER_PYTHON**, vznikal v roce 2024/2025 díky **Adamovi Steinervi**, žáku 3.E, vytvořena na pokyn **učitele Kamila Foltina**. 
 
 
 Vyrobeno 09.02.2025, upraveno 09.02.2025
