@@ -56,7 +56,7 @@ class SVS():
             result = subprocess.run(command, capture_output=True, text=True, check=check, env=env)
             return result.stdout.strip()
         except subprocess.CalledProcessError as e:
-            cmd = " ".join(command)
+            cmd = " ".join([str(c) for c in command])
             if command[0]=="systemctl":
                 raise SystemdException(f"Error executing '{cmd}'")
             else:
@@ -142,6 +142,8 @@ class SVS():
             self.command([self.VENV_DIR / "bin" / "pip", "install", "-r", self.REQUIREMENTS_TXT])
             print(f"🟩 Installing gunicorn server...")
             self.command([self.VENV_DIR / "bin" / "pip", "install", "gunicorn"])
+            print(f"🟩 Installing psycopg...")
+            self.command([self.VENV_DIR / "bin" / "pip", "install", "psycopg"])
     
     # pg
 
@@ -231,6 +233,11 @@ class SVS():
         """Run Django migrations."""
         print("🟩 Running Django migrations...")
         self.command([self.VENV_DIR / "bin" / "python", self.MANAGE_PY, "migrate"], env={"DJANGO_SETTINGS_MODULE": f"{self.project_name}.settings_svs"})
+
+    def django_loaddata(self, fixture):
+        """Load Django fixtures."""
+        print(f"🟩 Load Django fixtures '{fixture}'...")
+        self.command([self.VENV_DIR / "bin" / "python", self.MANAGE_PY, "loaddata", fixture], env={"DJANGO_SETTINGS_MODULE": f"{self.project_name}.settings_svs"})
         
     def django_setup(self, domain, port):
         """Set up Django project with Gunicorn and systemd."""
@@ -453,6 +460,8 @@ if __name__ == "__main__":
     info_parser = subparsers.add_parser("info", help="Show information about the Django project setup")
     update_parser = subparsers.add_parser("update", help="Update Django project (run git pull, migrations, reload static files and restart service)")
     clean_parser = subparsers.add_parser("clean", help="Clean up Django project setup (delete created config files and stop systemd service)")
+    loaddata_parser = subparsers.add_parser("loaddata", help="Load Django fixtures")
+    loaddata_parser.add_argument("fixture", help="Fixture file to load")
     help_parser = subparsers.add_parser("help", help="Show this help message")
 
     args = parser.parse_args()
@@ -471,6 +480,8 @@ if __name__ == "__main__":
                 svs.update()
             elif args.command == "clean":
                 svs.clean()
+            elif args.command == "loaddata":
+                svs.django_loaddata(args.fixture)
         except SystemdException as e:
             print(f"🟥 {e.__class__.__name__}: {e}")
             svs.journalctl_messages()
