@@ -28,7 +28,8 @@
                 <div class="box">
                     <h2><a href="{% url 'content:article' article.id %}">{{ article.title }}</a></h2>
                     <div class="entita">
-                        <img src="{{ MEDIA_URL }}{{ article.image }}" alt="{{ article.title }}">
+                        <!-- <img src="{{ MEDIA_URL }}{{ article.image }}" alt="{{ article.title }}"> -->
+                        <img src="{% static article.image %}" alt="{{ article.title }}">
                     </div>
                     <table style="width:100%">
                         <tr>
