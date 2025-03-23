@@ -1,4 +1,5 @@
 {% extends 'content/base.html' %}
+{% load static %}
 
 {% block title %}
 <style>
@@ -26,9 +27,43 @@
             <div class="item">
                 <div class="box">
                     <h2><a href="{% url 'content:article' article.id %}">{{ article.title }}</a></h2>
+                    <div class="entita">
+                        <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                    </div>
                     <table style="width:100%">
                         <tr>
                             <td style="width:80%">
+                            <p>Hodnocení: {{ article.vote_avg }} na {{ article.vote_count }} hlasů</a></p>
+                            <p>Hodnocení v obrázku:</p>
+                            {% if article.vote_count == 0 %}
+                                <img src="{% static 'Question.png' %}" alt="?">
+                            {% else %}
+                                {% with article.vote_avg|floatformat:0 as rounded_vote %} 
+
+                                {% if rounded_vote == "1" %}
+                                    <img src="{% static 'Heart0.png' %}" alt="mrtveSrdicko" style="width:42px;height:42px;">
+                                {% elif rounded_vote == "2" %}
+                                    <img src="{% static 'Heart1.png' %}" alt="1cvtCervenoho" style="width:42px;height:42px;">
+                                {% elif rounded_vote == "3" %}
+                                    <img src="{% static 'Heart2.png' %}" alt="2cvtCervenoho" style="width:42px;height:42px;">
+                                {% elif rounded_vote == "4" %}
+                                    <img src="{% static 'Heart3.png' %}" alt="3cvtCervenoho" style="width:42px;height:42px;">
+                                {% elif rounded_vote == "5" %}
+                                    <img src="{% static 'Heart.png' %}" alt="cerveneSrdce" style="width:42px;height:42px;">
+                                {% elif rounded_vote == "6" %}
+                                    <img src="{% static 'GoldenHeart1.png' %}" alt="1cvtZlateho" style="width:42px;height:42px;">
+                                {% elif rounded_vote == "7" %}
+                                    <img src="{% static 'GoldenHeart2.png' %}" alt="2cvtZlateho" style="width:42px;height:42px;">
+                                {% elif rounded_vote == "8" %}
+                                    <img src="{% static 'GoldenHeart3.png' %}" alt="3cvtZlateho" style="width:42px;height:42px;">
+                                {% elif rounded_vote == "9" %}
+                                    <img src="{% static 'GoldenHeart.png' %}" alt="zlateSrdce" style="width:42px;height:42px;">
+                                {% else %}
+                                    <img src="{% static 'Question.png' %}" alt="?" style="width:42px;height:42px;">
+                                {% endif %}
+
+                                {% endwith %}
+                            {% endif %}
                                 <p>
                                     Kategorie:
                                     {% for category in article.categories.all %}
@@ -40,9 +75,7 @@
                                 </p>
                             </td>
                             <td>
-                                <div class="entita">
-                                    <img src="{{ article.image.url }}" alt="{{ article.title }}">
-                                </div>
+                                
                             </td>
                         </tr>
                         <tr>

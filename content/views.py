@@ -73,7 +73,7 @@ def article(request, id):
             return HTTPResponseRedirect(reverse('content:article', args=[id]))
         
         vote = int(request.GET['vote'])
-        if vote <= 5 and vote >= 1:
+        if vote <= 9 and vote >= 1:
             article.vote_sum += vote
             article.vote_count += 1
             article.save()
