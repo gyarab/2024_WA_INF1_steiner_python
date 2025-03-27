@@ -17,6 +17,10 @@
         height: 100px;
         height: auto;
     }
+    .klicz-2 {
+        width: 100%;
+        height: 50px;
+    }
 </style>
 <header>
     <div class="content"></div>
@@ -81,6 +85,15 @@
         {% block main %}
         {% endblock %}
     </main>
+
+    <h1>Známost stránky</h1>
+
+    <p>Počet kliknutí</p>
+    <div id="klikz-2"></div>
+    <script src="https://klikz.svs.gyarab.cz/hit/2?size=small&front=008000&back=ffffff"></script>
+    
+    <p>Tak ať jich je hodně</p>
+
     {% include 'content/footer.html' %}
     </div>
 </body>
