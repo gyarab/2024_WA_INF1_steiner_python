@@ -31,7 +31,7 @@
         <tr>
             <td style="width:80%">
                 <strong>Zákldní parametry:</strong>
-            <p>{{ article.zakladniInfo }}</p>
+            <p>{{ article.zakladniInfo|linebreaks }}</p>
 
             <strong>Kategorie:</strong>
             <p>
@@ -41,16 +41,16 @@
             </p>
 
             <strong>Další informace:</strong>
-            <p>{{ article.dodatkovyText }}</p>
+            <p>{{ article.dodatkovyText|linebreaks|linebreaks}}</p>
 
             <strong>Jak k tomu přijít:</strong>
-            <p>{{ article.vyroba }}</p>
+            <p>{{ article.vyroba|linebreaks}}</p>
 
             <strong>V jakém biomu jsem:</strong>
             <p>{{ article.biom }}</p>
 
             <strong>Od jaké verze je to tady s námi:</strong>
-            <p>{{ article.version }}</p>
+            <p>{{ article.version|linebreaks}}</p>
 
             </td>
             <td>
