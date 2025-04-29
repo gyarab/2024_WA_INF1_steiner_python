@@ -5,6 +5,11 @@ from django.urls import reverse
 import json
 from .models import Article, Category, Comment
 from .forms import CommentForm
+from django.contrib.auth import authenticate, login, logout 
+from .forms import LoginForm, LogoutForm
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
 
 # Create your views here.
 def articles(request):
@@ -91,4 +96,30 @@ def category(request, id):
     articles = category.articles.all()
     
     return render(request, 'content/category.html', {'category':category, 'articles': articles})
+
+def login_view(request):
+    form = LoginForm(request.POST)
+    if request.method == 'POST' and form.is_valid():
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return HTTPResponseRedirect(reverse('content:login'))
+        else:
+            form.add_error(None, 'Neplatné přihlašovací údaje')
+    else:
+        form = LogoutForm()
+        return render(request, 'content/login.html', {'form': form, 'user': request.user})
+
+
+def logout_view(request):
+    if request.method == 'POST':
+        logout(request)
+        return redirect('content:login')
+    else:
+        # Můžeš zobrazit formulář pro potvrzení odhlášení
+        form = LogoutForm()
+        return render(request, 'content/logout.html', {'form': form})
+
     

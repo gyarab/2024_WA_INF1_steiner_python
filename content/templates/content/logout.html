@@ -1,0 +1,27 @@
+{% extends "content/base.html" %}
+ 
+{% block title %}
+ 
+<h1>Logout</h1>
+ 
+{% endblock %}
+ 
+{% block main %}
+ 
+<div class="homepage">
+    
+    {% if request.user.is_authenticated %}
+    <p>Jste přihlášen jako {{ request.user.username }}</p>
+    {% else %}
+    <p>Nejste přihlášen.</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Odhlásit se</button>
+    </form>
+
+</div>
+ 
+{% endblock %}
