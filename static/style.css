@@ -36,7 +36,6 @@ header{
     padding: 0px 2px;
     text-align: center;
     text-decoration: none;
-
     display: inline-block;
   }
   
@@ -153,7 +152,7 @@ th, td .table {
 .Fbox{
     text-align: center;
     height: 25px;
-    min-width: 50px;
+    min-width: 20px;
 }
 .FBtn{
     text-align: center;
@@ -173,6 +172,7 @@ th, td .table {
 }
 
 .three{
+    text-align: right !important;
     text-align: center;
     background: var(--color-tertiary);
     flex-grow: 1;

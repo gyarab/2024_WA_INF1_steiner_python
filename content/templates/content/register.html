@@ -1,0 +1,71 @@
+{% extends "content/base.html" %}
+ 
+{% block title %}
+ 
+<h1>Register</h1>
+ 
+{% endblock %}
+ 
+{% block main %}
+ 
+<div class="homepage">
+
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ register_form.non_field_errors }}
+
+        <br>
+
+        <div class="form-group">
+            {{ register_form.username.label_tag }}
+            {{ register_form.username }}
+            {{ register_form.username.errors }}
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            {{ register_form.email.label_tag }}
+            {{ register_form.email }}
+            {{ register_form.email.errors }}
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            {{ register_form.password1.label_tag }}
+            {{ register_form.password1 }}
+            {{ register_form.password1.errors }}
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            {{ register_form.password2.label_tag }}
+            {{ register_form.password2 }}
+            {{ register_form.password2.errors }}
+        </div>
+
+        <br>
+
+        <div style=" margin-left: 45px; font-size: 18px;">
+            <button type="submit">Registrovat se</button>
+        </div>
+
+        <br>
+
+    </form>
+
+    <p>Máte již účet? Tak se zde přihlašte -> <a href="{% url 'content:login' %}">Přihlášení</a></p>
+
+</div>
+
+{% endblock %}

@@ -112,15 +112,35 @@
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
     </div>
+
+    <br>
  
     <div class="form-group">
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required> 
-    </div> 
+    </div>
+    
+    <br>
 
-    <button type="submit">Login</button>
+    <div style=" margin-left: 45px; font-size: 18px;">
+        <button type="submit">Login</button>
+    </div>
+
+    <br>
 
 </form>
+
+<p>Namáte-li účet, tak se zaregistujte zde -> <a href="{% url 'content:register' %}">Registrace</a></p>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
 {% if user.is_authenticated %}
 
