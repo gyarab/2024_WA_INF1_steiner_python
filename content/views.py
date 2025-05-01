@@ -15,6 +15,9 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth.models import User
 from .forms import RegisterForm
+from django.contrib.auth.decorators import permission_required
+from django.shortcuts import get_object_or_404, redirect
+from .models import Comment  # nebo Review, podle pojmenování
 
 
 # Create your views here.
@@ -152,3 +155,9 @@ def register_view(request):
             return redirect(reverse('content:login'))
         else:
             return render(request, 'content/register.html', {'register_form': form})
+
+@permission_required('content.delete_review')
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    comment.delete()
+    return redirect(request.META.get('HTTP_REFERER', 'content:articles'))  # Redirect back to the previous page or to a default URL

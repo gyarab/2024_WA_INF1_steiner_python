@@ -93,6 +93,7 @@
 </html> -->
 
 {% extends "content/base.html" %}
+{% load static %}
  
 {% block title %}
  
@@ -129,6 +130,8 @@
     <br>
 
 </form>
+
+<a href="{% url 'social:begin' 'google-oauth2' %}">Přihlásit se pomocí Google</a>
 
 <p>Namáte-li účet, tak se zaregistujte zde -> <a href="{% url 'content:register' %}">Registrace</a></p>
 

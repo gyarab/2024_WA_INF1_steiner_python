@@ -111,6 +111,12 @@
                         </div>
                         <p class="mb-1">{{ comment.text }}</p>
                     </li>
+                        {% if perms.content.delete_review %}
+                            <form method="POST" action="{% url 'content:delete_comment' comment.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Smazat</button>
+                            </form>
+                        {% endif %}
                 {% endfor %}
             </ul>
         </div>    </div>
