@@ -22,7 +22,7 @@ from django.conf import settings
 urlpatterns = [
     path('', include('content.urls')),
     path('admin/', admin.site.urls),
-    path('oauth/', include('social_django.urls', namespace='social')),
+    path('oauth/', include('social_django.urls', namespace='social')), #Je to potreba
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
