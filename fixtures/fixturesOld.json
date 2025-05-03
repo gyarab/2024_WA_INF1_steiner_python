@@ -1,0 +1,273 @@
+[
+{
+    "model": "content.category",
+    "pk": 1,
+    "fields": {
+        "name": "Enemák"
+    }
+},
+{
+    "model": "content.category",
+    "pk": 2,
+    "fields": {
+        "name": "Zbraň"
+    }
+},
+{
+    "model": "content.category",
+    "pk": 4,
+    "fields": {
+        "name": "Slime"
+    }
+},
+{
+    "model": "content.category",
+    "pk": 5,
+    "fields": {
+        "name": "Meč"
+    }
+},
+{
+    "model": "content.category",
+    "pk": 6,
+    "fields": {
+        "name": "Zvířátko"
+    }
+},
+{
+    "model": "content.category",
+    "pk": 7,
+    "fields": {
+        "name": "Ryba"
+    }
+},
+{
+    "model": "content.category",
+    "pk": 9,
+    "fields": {
+        "name": "Blood Moon"
+    }
+},
+{
+    "model": "content.biom",
+    "pk": 3,
+    "fields": {
+        "name": "Corruption"
+    }
+},
+{
+    "model": "content.biom",
+    "pk": 4,
+    "fields": {
+        "name": "Forest + Day Slime Rain"
+    }
+},
+{
+    "model": "content.biom",
+    "pk": 5,
+    "fields": {
+        "name": "no matter where"
+    }
+},
+{
+    "model": "content.biom",
+    "pk": 6,
+    "fields": {
+        "name": "Cave"
+    }
+},
+{
+    "model": "content.biom",
+    "pk": 7,
+    "fields": {
+        "name": "Forest + Day"
+    }
+},
+{
+    "model": "content.biom",
+    "pk": 8,
+    "fields": {
+        "name": "Crimson"
+    }
+},
+{
+    "model": "content.biom",
+    "pk": 9,
+    "fields": {
+        "name": "Graveyard"
+    }
+},
+{
+    "model": "content.article",
+    "pk": 3,
+    "fields": {
+        "title": "Copper Broadsword",
+        "zakladniInfo": "Damage\t9 / 8 (Melee)\r\nKnockback\t5.5 (Average)\r\nCritical chance\t4%\r\nUse time\t21 (Fast)\r\nRarity\tRarity level: 0\r\nSell\t        90",
+        "dodatkovyText": "Jedná se o jednu z nejslabších zbraní ve hře, má silnějšího bratříčka, tin broadsword, ale také to není žádná sláva. Jako u všech širokých mečů se oháníš s ním přes hlavu - dobré proti letajícím a skákajícím enemáků. Všeobecně se doporučuje spíš na začátku hru cílit na Ebonwood Sword nebo Shadewood Sword.",
+        "vyroba": "8x Copper Bar + kovadlina (železná či olověná)",
+        "image": "Copper_Broadsword.png",
+        "version": "Release",
+        "lastUpdate": "2025-02-08T15:06:50Z",
+        "biom": 5,
+        "vote_sum": 4,
+        "vote_count": 1,
+        "categories": [
+            2,
+            5
+        ]
+    }
+},
+{
+    "model": "content.article",
+    "pk": 4,
+    "fields": {
+        "title": "Ebonwood Sword",
+        "zakladniInfo": "Damage\t11 / 10 (Melee)\r\nKnockback\t6 (Average) / 5\r\nCritical chance\t4%\r\nUse time\t19 (Very fast)\r\nRarity\tRarity level: 0\r\nSell\t20",
+        "dodatkovyText": "Je to alternativa k dřevěnému meči pochazejícího z korupce. Davají větší poškození a jsou rychlejší nežli ostatní dřevěné meče. Je užitečný do začátku. Ale bacha Corruption je pro nové hráče dost vošajstlich.",
+        "vyroba": "7 x Ebonwood + Work Bench",
+        "image": "Ebonwood_Sword.png",
+        "version": "1.2",
+        "lastUpdate": "2025-02-08T15:13:02Z",
+        "biom": 3,
+        "vote_sum": 0,
+        "vote_count": 0,
+        "categories": [
+            2,
+            5
+        ]
+    }
+},
+{
+    "model": "content.article",
+    "pk": 5,
+    "fields": {
+        "title": "Green Slime",
+        "zakladniInfo": "Environment\t\r\n\r\nAI Type\tSlime AI\r\nDamage\t6\r\nMax Life\t14\r\nDefense\t0\r\nKB Resist\t-20%\r\nBanner\tGreen Slime BannerGreen Slime Banner\r\nImmune to\tPoisoned\r\n---------------------------\r\nDrops:\r\n   Coins\t3\r\n   Item (Quantity)       Rate\r\n   Gel (1-2)                 100%\r\n   Slime Staff              0.01%",
+        "dodatkovyText": "Green Slime je nejslabším ze všech slimů, se kterým se lze setkat. Jelikož se Green Slmes běžně objevují v lese během dne, tak se stane pravdopodobně vaším prvním nepřítelem. Green Slime se normálně na hráče nezaměří, ale když ho bouchneš, tak ti ukáže. Také na tebe zautočí během noci, nebo v podzemí.",
+        "vyroba": "Mě nevyrobíš...",
+        "image": "Green_Slime.png",
+        "version": "Release",
+        "lastUpdate": "2025-02-08T18:23:10Z",
+        "biom": 4,
+        "vote_sum": 0,
+        "vote_count": 0,
+        "categories": [
+            1,
+            4
+        ]
+    }
+},
+{
+    "model": "content.article",
+    "pk": 6,
+    "fields": {
+        "title": "Piranha",
+        "zakladniInfo": "AI Type\tSwimming AI\r\nDamage\t25\r\nMax Life\t30\r\nDefense\t2\r\nKB Resist\t0%\r\nBanner\tPiranha BannerPiranha Banner\r\nImmune to\tConfused\r\nDrops--------------------------\r\nCoins\t50\r\nItem (Quantity)    Rate\r\nHook                    3.3%\r\nRobot Hat            0.4%\r\nCompass             1.33%",
+        "dodatkovyText": "Piraňa je nepřítel!\r\n\r\nMůžeš ho nelézt ve vodních tůních v biomech džungle a podzemní džungle a ve vrstvě jeskyně. V biomech džungle je dvakrát běžnejší.\r\n\r\nPiraně plavou v přímé linii doleva nebo doprava, dokud nenarazí na zeď, kde změní směr. Pokud jsou ponořeny ve vodě, budou plavat směrem k hráči; jinak nevěnují hráči pozornost. Pohybují ocasem tam a zpět a plavou v mírném cik-caku. Pokud je Piraňa mimo vodu, bude divoce skákat, takže je nebezpečné se přibližovat.",
+        "vyroba": "Mě nevyrobíš...",
+        "image": "Piranha_old.png",
+        "version": "Desktop 1.0.4",
+        "lastUpdate": "2025-02-08T20:45:12Z",
+        "biom": 6,
+        "vote_sum": 0,
+        "vote_count": 0,
+        "categories": [
+            1,
+            6,
+            7
+        ]
+    }
+},
+{
+    "model": "content.article",
+    "pk": 7,
+    "fields": {
+        "title": "Bunny",
+        "zakladniInfo": "AI Type\tPassive AI\r\nDamage\t0\r\nMax Life\t5\r\nDefense\t0\r\nKB Resist\t0%\r\nBanner\tBunny Banner",
+        "dodatkovyText": "Zajíčci jsou neškodná zvířátka, která lze chytit pomocí sítě proti hmyzu a normálně s hráčem nijak jinak neinteragují, kromě toho, že je mohou zabít jak hráči, tak nepřátelé. Mají 5 zdraví a obvykle slouží jako okolní entity v Terrarii.\r\n\r\nZajíčci se obvykle spawnují pouze ve střední třetině nadzemního světa a pouze na obyčejné trávě, i když se mohou plodit i poblíž NPC na jiných místech. U králíků je méně pravděpodobné, že se spawnují v Hardmode a mohou být spawnováni pomocí sochy zajíčka připojené k páce, tlakové desce nebo spínači. Během Blood Moon, nebo když jsou zasaženi Vile Powder nebo Vicious Powder, se zajíčci promění v Corrupt Bunnies nebo Vicious Bunnies, kteří mají mnohem více zdraví a jsou agresivní.\r\n\r\nBěhem halloweenské sezónní akce se zajíčci zrodí v kostýmech Green Slime, během Vánoc se zajíčci zrodí v kostýmech Santa a během večírku se mohou zajíčci zrodit s klobouky na párty.\r\n\r\nZe všech chycených králíčků lze vytvořit klece pro zajíčky a vytvořit tak animovaný výstavní nábytek. Jakmile je stvoření vytvořeno, nemůže být propuštěno. Zajatého zajíčka lze také použít k vytvoření výbušného zajíčka, který bude vystřelen z kanónu zajíčka.",
+        "vyroba": "Terrarium + Bunny = Bunny Cage (vyrobíš bez jakékoliv crafting station)\r\nDynamite + Bunny = Explosive Bunny (vyrobíš bez jakékoliv crafting station)\r\nBunny = Bunny Stew (Cooking Pot)",
+        "image": "Bunny.png",
+        "version": "Desktop 1.0.4",
+        "lastUpdate": "2025-02-09T11:02:54Z",
+        "biom": 7,
+        "vote_sum": 0,
+        "vote_count": 0,
+        "categories": [
+            6
+        ]
+    }
+},
+{
+    "model": "content.article",
+    "pk": 8,
+    "fields": {
+        "title": "Vicious Bunny",
+        "zakladniInfo": "AI Type\tFighter AI\r\nDamage\t21\r\nMax Life\t75\r\nDefense\t5\r\nKB Resist\t0%\r\nBanner\tVicious Bunny\r\nDrops----------------------\r\nCoins                       5 silvers\r\nItem (Quantity)                                        Rate\r\nBunny Hood                                            1.33%\r\nCrimson Bunny Kite(on Windy Days)       4%",
+        "dodatkovyText": "Vicious Bunny je nepřítel z doby před tvrdým režimem, který je výsledkem zajíčka, který byl poškozen, buď tím, že na něj hráč použil Vicious Powder, nebo když se Bunny objeví během Blood Moon v Crimson světě.\r\n\r\nJeho alternativou je Corrupt Bunny, který je z verze 1.0.4",
+        "vyroba": "Mě nevyrobíš",
+        "image": "Crimtanebunnies.png",
+        "version": "1.3.0.1",
+        "lastUpdate": "2025-02-09T11:33:58Z",
+        "biom": 8,
+        "vote_sum": 0,
+        "vote_count": 0,
+        "categories": [
+            1,
+            6,
+            9
+        ]
+    }
+},
+{
+    "model": "content.article",
+    "pk": 9,
+    "fields": {
+        "title": "Blue Jellyfish",
+        "zakladniInfo": "AI Type\tJellyfish AI\r\nDamage\t25\r\nMax Life\t34\r\nDefense\t4\r\nKB Resist\t0%\r\nBanner\tBlue Jellyfish Banner\r\nImmune to\tConfused\r\nDrops----------------------\r\nCoins\t1\r\nItem (Quantity)              Rate\r\nGlowstick (1-4)              100%\r\nJellyfish Necklace          1%\r\nPink Jellyfish Kite(on Windy Days)     2%",
+        "dodatkovyText": "Jedná se o vodní zvíře. Když jsou pod vodou, útočí tak, že se pohybují směrem k hráči v krátkých dávkách. Když jsou mimo vodu, nebudou moci hráče jakýmkoliv způsobem pohybovat ani pronásledovat. Medúzy jsou schopny vyskočit z vody, aby zaútočily na hráče, často je nechávají uvízlé na zemi. Většina druhů medúz produkuje světlo, takže je snadné je najít v tmavých oblastech. Aktuálně existuje 5 variant medúzy, z nichž 3 se objevují pouze během Hardmode. Blue Jellyfish se plodí pouze v pre-Hardmode a jsou nahrazeny zelenou variantou v Hardmode.\r\n\r\nHraješ-li Hardmode, tak se připrav na fakt, že se pravidelně elektrizují a na tento okamžik se stávají neporatitelnými, protože při zásahu hráč udělá: \"Brrrrrrrrrrrrrrrrrrrrrrrrr, ttttttttooooooooo Byyyyyyyyyllll špppppppppaaaaatttttnýýýýý nnnnáááááppppaaaddddddd...\"",
+        "vyroba": "Mě navyrobíš a ani ze mě nic nevyrobíš, hahaha!",
+        "image": "Blue_Jellyfish2.png",
+        "version": "1.0.5",
+        "lastUpdate": "2025-02-09T11:48:25Z",
+        "biom": 6,
+        "vote_sum": 0,
+        "vote_count": 0,
+        "categories": [
+            1,
+            6,
+            7
+        ]
+    }
+},
+{
+    "model": "content.article",
+    "pk": 10,
+    "fields": {
+        "title": "Ghost",
+        "zakladniInfo": "AI Type\tHovering AI\r\nDamage\t15\r\nMax Life\t50\r\nDefense\t4\r\nKB Resist\t50%\r\nBanner\tGhost BannerGhost Banner\r\nImmune to\tOn Fire; Acid Venom; Frostbite; Shadowflame; Confused; Ichor; Cursed Inferno; Betsy's Curse; Poisoned; Oiled; Daybroken; Frostburn; Hellfire - Mrcha je imunní vůči všemu\r\nDrops---------------\r\nCoins\t90 měďáků",
+        "dodatkovyText": "Jedná se o pre-hardmode nepřítele, který se spawnuje na hřitovech, tj několik hrobů poblíž sebe, asi 7 teďka nevím.\r\n\r\nMůžež ho také vyvolat při rozbíjení tvých hrobů, ne hrobů tvého kolegy. \r\n\r\nDuchové se chovají jako Wraithové, vznášejí se nad zemí a procházejí pevnými bloky, aby dosáhli hráče. Aby duchové mohli cestovat k hráčům, musí mít pevný blok, kterým mohou projít, jinak zůstanou viset těsně nad zemí.\r\n\r\nTyp: duchové ti neblíží, když jsou ve stěně - takže použij speary.",
+        "vyroba": "Není, húúúúúúúúú.....",
+        "image": "Ghost_enemy.png",
+        "version": "1.2.1",
+        "lastUpdate": "2025-02-09T16:10:00Z",
+        "biom": 9,
+        "vote_sum": 0,
+        "vote_count": 0,
+        "categories": [
+            1
+        ]
+    }
+},
+{
+    "model": "content.comment",
+    "pk": 1,
+    "fields": {
+        "name": "Adam",
+        "text": "dcncjnrcnfrjcvfr",
+        "article": 3,
+        "time": "2025-03-20T12:06:04.163Z",
+        "ip": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:136.0) Gecko/20100101 Firefox/136.0"
+    }
+}
+]

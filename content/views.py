@@ -160,4 +160,4 @@ def register_view(request):
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
     comment.delete()
-    return redirect(request.META.get('HTTP_REFERER', 'content:articles'))  # Redirect back to the previous page or to a default URL
+    return redirect(request.META.get('HTTP_REFERER', 'content:articles'))
