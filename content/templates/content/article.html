@@ -106,12 +106,17 @@
                 {% for comment in article.comments.all %}
                     <li class="list-group-item">
                         <div class="d-flex justify-content-between">
+                            <p class="text-muted small">
+                                Realné jméno: {{ comment.user.username|default:"Nepřihlášený uživatel" }}<br>
+                                <!-- Jméno (z formuláře): {{ comment.name }} -->
+                            </p>
+
                             <h5 class="mb-1">{{ comment.name }}</h5>
                             
                         </div>
                         <p class="mb-1">{{ comment.text }}</p>
                     </li>
-                    {% if perms.content.delete_review %}
+                    {% if user == comment.user or perms.content.delete_review %}
                         <form method="POST" action="{% url 'content:delete_comment' comment.id %}" style="display:inline;">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger btn-sm mt-2">Smazat</button>

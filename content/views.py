@@ -18,6 +18,10 @@ from .forms import RegisterForm
 from django.contrib.auth.decorators import permission_required
 from django.shortcuts import get_object_or_404, redirect
 from .models import Comment  # nebo Review, podle pojmenování
+from django.core.exceptions import PermissionDenied
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
+
 
 
 # Create your views here.
@@ -73,6 +77,7 @@ def article(request, id):
             comment = Comment()
             comment.name = data['name']
             comment.text = data['text']
+            comment.user = request.user if request.user.is_authenticated else None
             comment.article = article
             comment.ip = request.META.get('REMOTE_ADDR') 
             comment.user_agent = request.META.get('HTTP_USER_AGENT')
@@ -156,8 +161,13 @@ def register_view(request):
         else:
             return render(request, 'content/register.html', {'register_form': form})
 
-@permission_required('content.delete_review')
+@login_required
 def delete_comment(request, comment_id):
     comment = get_object_or_404(Comment, id=comment_id)
-    comment.delete()
-    return redirect(request.META.get('HTTP_REFERER', 'content:articles'))
+
+    # Uživatel může smazat, pokud je autor nebo má oprávnění
+    if request.user == comment.user or request.user.has_perm('content.delete_comment'):
+        comment.delete()
+        return redirect(request.META.get('HTTP_REFERER', 'content:articles'))
+    else:
+        return HttpResponseForbidden("Nemáš oprávnění k odstranění tohoto komentáře.")
