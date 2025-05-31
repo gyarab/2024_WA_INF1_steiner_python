@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Reload obrázků</title>
-</head>
-<body>
-    <h1>Reload obrázků z media do static</h1>
+{% extends "content/base.html" %}
+
+{% block title %}
+ 
+<h1>Reload obrázků</h1>
+ 
+{% endblock %}
+
+{% block main %}
 
     <form method="post">
         {% csrf_token %}
@@ -24,5 +26,5 @@
             <p>Nebyly nalezeny žádné nové soubory ke kopírování.</p>
         {% endif %}
     {% endif %}
-</body>
-</html>
+
+{% endblock %}
