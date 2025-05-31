@@ -21,6 +21,10 @@ from .models import Comment  # nebo Review, podle pojmenování
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
+import os
+import shutil
+from django.conf import settings
+from django.shortcuts import render, redirect
 
 
 
@@ -171,3 +175,28 @@ def delete_comment(request, comment_id):
         return redirect(request.META.get('HTTP_REFERER', 'content:articles'))
     else:
         return HttpResponseForbidden("Nemáš oprávnění k odstranění tohoto komentáře.")
+    
+def reload_images(request):
+    copied_files = []
+
+    if request.method == 'POST':
+        media_root = settings.MEDIA_ROOT
+        static_root = settings.STATICFILES_DIRS[0]  # bez podsložky 'media'
+
+        for root, dirs, files in os.walk(media_root):
+            for file in files:
+                src_path = os.path.join(root, file)
+                rel_path = os.path.relpath(src_path, media_root)
+                dest_path = os.path.join(static_root, rel_path)
+
+                if not os.path.exists(dest_path):
+                    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                    shutil.copy2(src_path, dest_path)
+                    copied_files.append(rel_path)
+
+        return render(request, 'content/reload.html', {
+            'copied_files': copied_files,
+            'done': True
+        })
+
+    return render(request, 'content/reload.html')

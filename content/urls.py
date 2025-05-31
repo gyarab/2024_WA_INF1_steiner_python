@@ -14,5 +14,6 @@ urlpatterns = [
     path('register/', views.register_view, name='register'),
     path('comment/delete/<int:comment_id>/', views.delete_comment, name='delete_comment'),
     path('oauth/', include('social_django.urls', namespace='social')),
+    path('reload/', views.reload_images, name='reload_images'),
 ]
 

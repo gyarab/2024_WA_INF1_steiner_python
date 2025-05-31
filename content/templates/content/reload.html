@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reload obrázků</title>
+</head>
+<body>
+    <h1>Reload obrázků z media do static</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Znovu načíst</button>
+    </form>
+
+    {% if done %}
+        <h2>Hotovo!</h2>
+        {% if copied_files %}
+            <p>Byly zkopírovány tyto soubory:</p>
+            <ul>
+                {% for file in copied_files %}
+                    <li>{{ file }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nebyly nalezeny žádné nové soubory ke kopírování.</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
